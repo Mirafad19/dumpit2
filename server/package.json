@@ -1,0 +1,12 @@
+{
+  "name": "dumpit-web-signaling",
+  "version": "0.1.0",
+  "private": true,
+  "main": "signaling.js",
+  "scripts": {
+    "start": "node signaling.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

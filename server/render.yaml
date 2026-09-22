@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: dumpit-signal
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 8080

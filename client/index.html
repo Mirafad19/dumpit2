@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dumpit Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topline">
+    <div class="brand">
+      <img class="mark" src="assets/dumpit-mark.png" alt="Dumpit" />
+      <span class="wordmark">DUMPIT <span class="web-tag">WEB</span></span>
+    </div>
+  </header>
+
+  <!-- Pairing screen: since there's no local-network discovery in a
+       browser, two people share a short room code instead. Once both are
+       in the room, it behaves like Air Grab on desktop — fist to grab,
+       hold an open hand to catch. -->
+  <main id="pairScreen" class="pair-screen">
+    <div class="pair-card">
+      <h1>Connect two browsers</h1>
+      <p class="sub">One person creates a room, the other joins with the code. Files never pass through our server — only the connection handshake does.</p>
+
+      <div class="pair-actions">
+        <button id="createRoomBtn" class="cta">Create a room</button>
+        <div class="divider"><span>or</span></div>
+        <div class="join-row">
+          <input id="joinCodeInput" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit code" />
+          <button id="joinRoomBtn">Join</button>
+        </div>
+      </div>
+
+      <div id="roomCodeDisplay" class="room-code-display hidden">
+        <p class="sub">Share this code with the other laptop:</p>
+        <div class="room-code" id="roomCodeText">——————</div>
+        <p class="waiting" id="waitingText">Waiting for someone to join…</p>
+      </div>
+
+      <p id="pairError" class="pair-error hidden"></p>
+    </div>
+
+    <p class="browser-note" id="browserNote"></p>
+  </main>
+
+  <main id="grabScreen" class="stage hidden">
+    <video id="video" muted playsinline></video>
+    <canvas id="ringCanvas"></canvas>
+
+    <div id="orbBurst" class="orb-burst hidden"></div>
+    <div id="grabPulse" class="grab-pulse hidden"></div>
+
+    <button id="exitBtn" title="Leave room">✕ Leave</button>
+
+    <div id="topBar" class="top-bar">
+      <button id="addFilesBtn">Add Files…</button>
+      <span id="stagedSummary" class="staged-summary">No files staged</span>
+    </div>
+
+    <div id="incomingBanner" class="incoming-banner hidden"></div>
+    <div id="gestureStatus" class="gesture-status">Starting camera…</div>
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <input type="file" id="fileInput" multiple hidden />
+
+  <script src="config.js"></script>
+  <script src="gesture-web.js"></script>
+  <script src="transfer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
