@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dumpit-signal
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node signaling.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
